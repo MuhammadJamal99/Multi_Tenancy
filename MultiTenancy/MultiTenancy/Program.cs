@@ -2,6 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+TenantSettings options = new();
+builder.Configuration.GetSection(nameof(TenantSettings)).Bind(options);
+
 builder.Services.AddControllers();
 
 var app = builder.Build();
